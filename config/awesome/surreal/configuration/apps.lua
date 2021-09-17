@@ -6,13 +6,13 @@ return {
 	-- The default applications that we will use in keybindings and widgets
 	default = {
 		-- Default terminal emulator
-		terminal = 'kitty',
+		terminal = 'alacritty',
 		-- Default web browser
-		web_browser = 'firefox',
+		web_browser = 'google-chrome',
 		-- Default text editor
-		text_editor = 'subl3',
+		text_editor = 'lvim',
 		-- Default file manager
-		file_manager = 'dolphin',
+		file_manager = 'nautilus',
 		-- Default media player
 		multimedia = 'vlc',
 		-- Default game, can be a launcher like steam
@@ -36,15 +36,16 @@ return {
 		-- Default quake terminal
 		quake = 'kitty --name QuakeTerminal',
 		-- Default rofi global menu
-		rofi_global = 'rofi -dpi ' .. screen.primary.dpi .. 
-							' -show "Global Search" -modi "Global Search":' .. config_dir .. 
-							'/configuration/rofi/global/rofi-spotlight.sh' .. 
+		rofi_global = 'rofi -dpi ' .. screen.primary.dpi ..
+							' -show "Global Search" -modi "Global Search":' .. config_dir ..
+							'/configuration/rofi/global/rofi-spotlight.sh' ..
 							' -theme ' .. config_dir ..
 							'/configuration/rofi/global/rofi.rasi',
 		-- Default app menu
-		rofi_appmenu = 'rofi -dpi ' .. screen.primary.dpi ..
-							' -show drun -theme ' .. config_dir ..
-							'/configuration/rofi/appmenu/rofi.rasi'
+		-- rofi_appmenu = 'rofi -modi drun -dpi ' .. screen.primary.dpi ..
+		-- 					' -show drun -theme ~/.config/rofi/dracula.rasi'
+    rofi_appmenu = '/home/fredy/.config/rofi/bin/launcher_slate'
+		-- rofi_appmenu = '/home/fredy/.config/rofi/launchers/slate/launcher.sh'
 
 		-- You can add more default applications here
 	},
@@ -56,8 +57,6 @@ return {
 		config_dir .. '/configuration/picom.conf',
 		-- Blueman applet
 		'blueman-applet',
-		-- Music server
-		'mpd',
 		-- Polkit and keyring
 		'/usr/bin/lxqt-policykit-agent &' ..
 		' eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)',
@@ -65,11 +64,15 @@ return {
 		'xrdb $HOME/.Xresources',
 		-- Audio equalizer
 		'pulseeffects --gapplication-service',
+		-- Screenshots
+     'flameshot',
+		-- Keybindings
+		'xbindkeys',
 		-- Lockscreen timer
-		[[
-		xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
-		"awesome-client 'awesome.emit_signal(\"module::lockscreen_show\")'" ""
-		]]
+		-- [[
+		-- xidlehook --not-when-fullscreen --not-when-audio --timer 600 \
+		-- "awesome-client 'awesome.emit_signal(\"module::lockscreen_show\")'" ""
+		-- ]]
 
 		-- You can add more start-up applications here
 	},

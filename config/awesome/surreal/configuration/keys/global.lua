@@ -14,33 +14,33 @@ local global_keys = awful.util.table.join(
 
 	-- Hotkeys
 	awful.key(
-		{modkey}, 
-		'F1', 
-		hotkeys_popup.show_help, 
+		{modkey},
+		'F1',
+		hotkeys_popup.show_help,
 		{description = 'show help', group = 'awesome'}
 	),
-	awful.key({modkey, 'Control'}, 
-		'r', 
-		awesome.restart, 
+	awful.key({modkey, 'Control'},
+		'r',
+		awesome.restart,
 		{description = 'reload awesome', group = 'awesome'}
 	),
-	
-	awful.key({modkey, 'Control'}, 
-		'q', 
-		awesome.quit, 
+
+	awful.key({modkey, 'Control'},
+		'q',
+		awesome.quit,
 		{description = 'quit awesome', group = 'awesome'}
 	),
 	awful.key(
-		{altkey, 'Shift'},
-		'l',
+		{'Control', 'Shift'},
+		'Right',
 		function()
 			awful.tag.incmwfact(0.05)
 		end,
 		{description = 'increase master width factor', group = 'layout'}
 	),
 	awful.key(
-		{altkey, 'Shift'},
-		'h',
+		{'Control', 'Shift'},
+		'Left',
 		function()
 			awful.tag.incmwfact(-0.05)
 		end,
@@ -111,24 +111,24 @@ local global_keys = awful.util.table.join(
 		{description = 'decrease gap', group = 'layout'}
 	),
 	awful.key(
-		{modkey}, 
-		'w', 
-		awful.tag.viewprev, 
+		{modkey},
+		'w',
+		awful.tag.viewprev,
 		{description = 'view previous tag', group = 'tag'}
 	),
 	awful.key(
-		{modkey}, 
-		's', 
-		awful.tag.viewnext, 
+		{modkey},
+		's',
+		awful.tag.viewnext,
 		{description = 'view next tag', group = 'tag'}
 	),
 	awful.key(
-		{modkey}, 
-		'Escape', 
-		awful.tag.history.restore, 
+		{modkey},
+		'Escape',
+		awful.tag.history.restore,
 		{description = 'alternate between current and previous tag', group = 'tag'}
 	),
-	awful.key({ modkey, 'Control' }, 
+	awful.key({ modkey, 'Control' },
 		'w',
 		function ()
 			-- tag_view_nonempty(-1)
@@ -139,10 +139,10 @@ local global_keys = awful.util.table.join(
 					return
 				end
 			end
-		end, 
+		end,
 		{description = 'view previous non-empty tag', group = 'tag'}
 	),
-	awful.key({ modkey, 'Control' }, 
+	awful.key({ modkey, 'Control' },
 		's',
 		function ()
 			-- tag_view_nonempty(1)
@@ -153,20 +153,20 @@ local global_keys = awful.util.table.join(
 					return
 				end
 			end
-		end, 
+		end,
 		{description = 'view next non-empty tag', group = 'tag'}
 	),
 	awful.key(
-		{modkey, 'Shift'}, 
-		'F1',  
-		function() 
-			awful.screen.focus_relative(-1) 
+		{modkey, 'Shift'},
+		'F1',
+		function()
+			awful.screen.focus_relative(-1)
 		end,
 		{ description = 'focus the previous screen', group = 'screen'}
 	),
 	awful.key(
-		{modkey, 'Shift'}, 
-		'F2', 
+		{modkey, 'Shift'},
+		'F2',
 		function()
 			awful.screen.focus_relative(1)
 		end,
@@ -308,7 +308,7 @@ local global_keys = awful.util.table.join(
 		{description = 'dropdown application', group = 'launcher'}
 	),
 	awful.key(
-		{ }, 
+		{ },
 		'Print',
 		function ()
 			awful.spawn.easy_async_with_shell(apps.utils.full_screenshot,function() end)
@@ -316,7 +316,7 @@ local global_keys = awful.util.table.join(
 		{description = 'fullscreen screenshot', group = 'Utility'}
 	),
 	awful.key(
-		{modkey, 'Shift'}, 
+		{modkey, 'Shift'},
 		's',
 		function ()
 			awful.spawn.easy_async_with_shell(apps.utils.area_screenshot,function() end)
@@ -350,14 +350,14 @@ local global_keys = awful.util.table.join(
 	awful.key(
 		{modkey},
 		't',
-		function() 
+		function()
 			awesome.emit_signal('widget::blue_light:toggle')
 		end,
 		{description = 'toggle redshift filter', group = 'Utility'}
 	),
 	awful.key(
-		{ 'Control' }, 
-		'Escape', 
+		{ 'Control' },
+		'Escape',
 		function ()
 			if screen.primary.systray then
 				if not screen.primary.tray_toggler then
@@ -367,7 +367,7 @@ local global_keys = awful.util.table.join(
 					awesome.emit_signal('widget::systray:toggle')
 				end
 			end
-		end, 
+		end,
 		{description = 'toggle systray visibility', group = 'Utility'}
 	),
 	awful.key(
@@ -379,7 +379,7 @@ local global_keys = awful.util.table.join(
 		{description = 'lock the screen', group = 'Utility'}
 	),
 	awful.key(
-		{modkey}, 
+		{modkey},
 		'Return',
 		function()
 			awful.spawn(apps.default.terminal)
@@ -387,7 +387,7 @@ local global_keys = awful.util.table.join(
 		{description = 'open default terminal', group = 'launcher'}
 	),
 	awful.key(
-		{modkey, 'Shift'}, 
+		{modkey, 'Shift'},
 		'e',
 		function()
 			awful.spawn(apps.default.file_manager)
@@ -395,7 +395,7 @@ local global_keys = awful.util.table.join(
 		{description = 'open default file manager', group = 'launcher'}
 	),
 	awful.key(
-		{modkey, 'Shift'}, 
+		{modkey, 'Shift'},
 		'f',
 		function()
 			awful.spawn(apps.default.web_browser)
@@ -403,7 +403,7 @@ local global_keys = awful.util.table.join(
 		{description = 'open default web browser', group = 'launcher'}
 	),
 	awful.key(
-		{'Control', 'Shift'}, 
+		{'Control', 'Shift'},
 		'Escape',
 		function()
 			awful.spawn(apps.default.terminal .. ' ' .. 'htop')
@@ -411,7 +411,7 @@ local global_keys = awful.util.table.join(
 		{description = 'open system monitor', group = 'launcher'}
 	),
 	awful.key(
-		{modkey}, 
+		{modkey},
 		'e',
 		function()
 			local focused = awful.screen.focused()
@@ -429,7 +429,7 @@ local global_keys = awful.util.table.join(
 		{description = 'open application drawer', group = 'launcher'}
 	),
 	awful.key(
-		{}, 
+		{},
 		'XF86Launch1',
 		function()
 			local focused = awful.screen.focused()
@@ -548,7 +548,24 @@ for i = 1, 9 do
 				end
 			end,
 			descr_toggle_focus
-		)
+		),
+	  awful.key(
+	    {altkey, 'Shift'},
+	    'Print',
+	    function()
+	      awful.util.spawn_with_shell('flameshot gui -p ~/Pictures')
+	    end,
+	    {description = 'Mark an area and screenshot it to your clipboard', group = 'screenshots (clipboard)'}
+	  ),
+	  awful.key(
+	    {modkey, 'Shift'},
+	    's',
+	    function()
+	      awful.spawn('shutdown now')
+	    end,
+	    {description = 'Shutdown Computer', group = 'awesome'}
+	  ),
+	  awful.key({modkey}, 'Tab', awful.tag.history.restore, {description = 'go back', group = 'tag'})
 	)
 end
 

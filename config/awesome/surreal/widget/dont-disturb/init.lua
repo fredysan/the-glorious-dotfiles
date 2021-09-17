@@ -91,7 +91,7 @@ local check_disturb_status = function()
 	)
 end
 
-check_disturb_status()
+-- check_disturb_status()
 
 local toggle_action = function()
 	if dont_disturb_state then

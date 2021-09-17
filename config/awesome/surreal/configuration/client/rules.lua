@@ -125,25 +125,25 @@ ruled.client.connect_signal(
 			}
 		}
 
-		-- Terminal emulators
-		ruled.client.append_rule {
-			id = 'terminals',
-			rule_any = {
-				class = {
-					'URxvt',
-					'XTerm',
-					'UXTerm',
-					'kitty',
-					'K3rmit'
-				}
-			},
-			properties = {
-				tag = '1',
-				switch_to_tags = true,
-				size_hints_honor = false,
-				titlebars_enabled = true
-			}
-		}
+		-- -- Terminal emulators
+		-- ruled.client.append_rule {
+		-- 	id = 'terminals',
+		-- 	rule_any = {
+		-- 		class = {
+		-- 			'URxvt',
+		-- 			'XTerm',
+		-- 			'UXTerm',
+		-- 			'kitty',
+		-- 			'K3rmit'
+		-- 		}
+		-- 	},
+		-- 	properties = {
+		-- 		tag = '1',
+		-- 		switch_to_tags = true,
+		-- 		size_hints_honor = false,
+		-- 		titlebars_enabled = true
+		-- 	}
+		-- }
 
 		-- Browsers and chats
 		ruled.client.append_rule {
@@ -159,24 +159,21 @@ ruled.client.connect_signal(
 				}
 			},
 			properties = {
-				tag = '2'
+				tag = '1'
 			}
 		}
 
-		-- Text editors and word processing
+		-- Chat
 		ruled.client.append_rule {
 			id = 'text',
 			rule_any = {
 				class = {
-					'Geany',
-					'Atom',
-					'Subl3',
-					'code-oss'
+					'Slack',
 				},
-				name  = {
-					'LibreOffice',
-					'libreoffice'
-				}
+				-- name  = {
+				-- 	'LibreOffice',
+				-- 	'libreoffice'
+				-- }
 			},
 			properties = {
 				tag = '3'

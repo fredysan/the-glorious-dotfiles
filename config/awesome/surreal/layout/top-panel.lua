@@ -30,14 +30,14 @@ local top_panel = function(s)
 
 	panel:connect_signal(
 		'mouse::enter',
-		function() 
+		function()
 			local w = mouse.current_wibox
 			if w then
 				w.cursor = 'left_ptr'
 			end
 		end
 	)
-	
+
 	s.systray = wibox.widget {
 		visible = false,
 		base_size = dpi(20),
@@ -66,7 +66,7 @@ local top_panel = function(s)
 			layout = wibox.layout.fixed.horizontal,
 			task_list(s),
 			add_button
-		}, 
+		},
 		clock,
 		{
 			layout = wibox.layout.fixed.horizontal,

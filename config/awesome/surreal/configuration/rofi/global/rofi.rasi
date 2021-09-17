@@ -112,11 +112,14 @@ element {
 }
 
 element-icon {
+	background-color: @transparent;
 	size: 36px;
 	border: 0;
 }
 
 element-text {
+	background-color: @transparent;
+  text-color: @foreground;
 	expand: true;
 	horizontal-align: 0;
 	vertical-align: 0.5;

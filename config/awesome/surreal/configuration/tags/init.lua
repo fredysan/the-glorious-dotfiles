@@ -4,23 +4,30 @@ local beautiful = require('beautiful')
 local icons = require('theme.icons')
 local apps = require('configuration.apps')
 
+awful.layout.layouts = {
+  awful.layout.suit.tile,
+  awful.layout.suit.max,
+  awful.layout.suit.floating,
+  awful.layout.suit.magnifier
+}
+
 local tags = {
-	{
-		type = 'terminal',
-		icon = icons.terminal,
-		default_app = apps.default.terminal,
-		gap = beautiful.useless_gap
-	},
 	{
 		type = 'internet',
 		icon = icons.web_browser,
-		default_app = apps.default.web_browser,
+		default_app = apps.default.terminal,
 		gap = beautiful.useless_gap
 	},
 	{
 		type = 'code',
 		icon = icons.text_editor,
 		default_app = apps.default.text_editor,
+		gap = beautiful.useless_gap
+	},
+	{
+		type = 'chat',
+		icon = icons.social,
+		default_app = apps.default.web_browser,
 		gap = beautiful.useless_gap
 	},
 	{
